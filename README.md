@@ -1,14 +1,23 @@
 # SymbolkitParser
 
-Symbol parser usin symbolkit
+Symbol parser using symbolkit
 
 ##How to access to a framework module Interface (a.k.a. .swiftinterface):
+
 • get the sdk path $ xcrun --show-sdk-path --sdk iphoneos
-find the framework you’re interested in, and search the interface there. e.g. for SwiftUI: /System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface
+
+• find the framework you’re interested in, and search the interface there. e.g. for SwiftUI: /System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface
+
+## Extract the interface
+
+
 Docc way to extract info:
 Use swift symbolgraph-extract :
-$ swift symbolgraph-extract -module-name SwiftUI -v -output-dir . -target arm64-apple-ios -sdk $(xcrun --show-sdk-path --sdk iphoneos)
-2. Feed it to SymbolKit (https://github.com/apple/swift-docc-symbolkit.git) and do whathever you want with it!
+```$ swift symbolgraph-extract -module-name SwiftUI -v -output-dir . -target arm64-apple-ios -sdk $(xcrun --show-sdk-path --sdk iphoneos)```
+
+2. Goto the directory for the project using terminal and ```swift run SymbolkitParser ******/SwiftUI\ symbols/SwiftUI@Swift.symbols.json```
+
+
 
 ```
 import Foundation
